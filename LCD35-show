@@ -139,5 +139,5 @@ elif [ $# -gt 1 ]; then
 echo "Too many parameters"
 fi
 
-echo "reboot now"
-sudo reboot
+sudo dpkg -i -B xinput-calibrator_0.7.5-1_armhf.deb
+
