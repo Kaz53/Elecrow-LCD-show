@@ -164,6 +164,3 @@ fi
 sudo sync
 sudo sync
 
-echo "reboot now"
-sleep 1
-sudo reboot
