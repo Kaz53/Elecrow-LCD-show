@@ -15,14 +15,14 @@ if [ $hardware_arch -eq 32 ]; then
         sudo cp -rf ./boot/config-nomal-10.9-32.txt ./boot/firmware/config.txt.bak
     else
         if [[ "$deb_version" < "10.9" ]] || [[ "$deb_version" = "10.9" ]]; then
-            sudo cp -rf ./boot/config-nomal-10.9-32.txt ./boot/firmware/config.txt.bak
+            sudo cp -rf ./boot/config-nomal-10.9-32.txt ./boot/config.txt.bak
         elif [[ "$deb_version" < "12.1" ]]; then
-            sudo cp -rf ./boot/config-nomal-11.4-32.txt ./boot/firmware/config.txt.bak
+            sudo cp -rf ./boot/config-nomal-11.4-32.txt ./boot/config.txt.bak
         else
-            sudo cp -rf ./boot/config-nomal-12.1-32.txt ./boot/firmware/config.txt.bak
+            sudo cp -rf ./boot/config-nomal-12.1-32.txt ./boot/config.txt.bak
         fi
     fi
 elif [ $hardware_arch -eq 64 ]; then
-    sudo cp -rf ./boot/config-nomal-12.4-64.txt ./boot/firmware/config.txt.bak
+    sudo cp -rf ./boot/config-nomal-12.4-64.txt ./boot/config.txt.bak
 fi
 
