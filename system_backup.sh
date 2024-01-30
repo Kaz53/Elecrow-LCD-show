@@ -22,7 +22,7 @@ if [ -d /etc/X11/xorg.conf.d ]; then
     sudo rm -rf /etc/X11/xorg.conf.d
 fi
 
-result=`grep -rn "^dtoverlay=" /boot/config.txt | grep ":rotate=" | tail -n 1`
+result=`grep -rn "^dtoverlay=" /boot/firmware/config.txt | grep ":rotate=" | tail -n 1`
 if [ $? -eq 0 ]; then
     str=`echo -n $result | awk -F: '{printf $2}' | awk -F= '{printf $NF}'`
     if [ -f /boot/overlays/$str-overlay.dtb ]; then
@@ -36,13 +36,13 @@ if [ $? -eq 0 ]; then
 fi
 
 root_dev=`grep -oPr "root=[^\s]*" /boot/cmdline.txt | awk -F= '{printf $NF}'`
-sudo cp -rf /boot/config.txt ./.system_backup
+sudo cp -rf /boot/firmware/config.txt ./.system_backup
 sudo cp -rf /boot/cmdline.txt ./.system_backup/
 if test "$root_dev" = "/dev/mmcblk0p7";then
-    sudo cp -rf ./boot/config-noobs-nomal.txt /boot/config.txt
+    sudo cp -rf ./boot/config-noobs-nomal.txt /boot/firmware/config.txt
     #sudo cp -rf ./usr/cmdline.txt-noobs-original /boot/cmdline.txt
 else
-    sudo cp -rf ./boot/config-nomal.txt /boot/config.txt
+    sudo cp -rf ./boot/config-nomal.txt /boot/firmware/config.txt
     #sudo cp -rf ./usr/cmdline.txt-original /boot/cmdline.txt
 fi
 if [ -f /usr/share/X11/xorg.conf.d/99-fbturbo.conf ]; then
