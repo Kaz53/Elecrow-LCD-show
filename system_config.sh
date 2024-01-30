@@ -22,6 +22,6 @@ if [ $hardware_arch -eq 32 ]; then
         fi
     fi
 elif [ $hardware_arch -eq 64 ]; then
-    sudo cp -rf ./boot/config-nomal-11.4-64.txt ./boot/firmware/config.txt.bak
+    sudo cp -rf ./boot/config-nomal-12.4-64.txt ./boot/firmware/config.txt.bak
 fi
 
