@@ -3,6 +3,11 @@
 SCRIPT_DIR=`dirname $0`
 cd $SCRIPT_DIR
 
+if [ -e /boot/overlays/tft35a.dtbo ]; then
+    echo Driver alerady installed.
+    exit 0
+fi
+
 sudo ./system_backup.sh
 
 if [ -f /etc/X11/xorg.conf.d/40-libinput.conf ]; then
