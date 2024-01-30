@@ -3,11 +3,6 @@
 SCRIPT_DIR=`dirname $0`
 cd $SCRIPT_DIR
 
-if [ -e /boot/overlays/tft35a.dtbo ]; then
-    echo Driver alerady installed.
-    exit 0
-fi
-
 sudo ./system_backup.sh
 
 if [ -f /etc/X11/xorg.conf.d/40-libinput.conf ]; then
@@ -39,7 +34,7 @@ sudo echo "hdmi_mode=87" >>./boot/config.txt.bak
 sudo echo "hdmi_cvt 480 320 60 6 0 0 0" >>./boot/config.txt.bak
 sudo echo "hdmi_drive=2" >>./boot/config.txt.bak
 sudo echo "lcd_rotate=2" >>./boot/config.txt.bak
-sudo cp -rf ./boot/config.txt.bak /boot/config.txt
+sudo cp -rf ./boot/config.txt.bak /boot/firmware/config.txt
 
 sudo cp -rf ./usr/99-calibration.conf-35-270 /etc/X11/xorg.conf.d/99-calibration.conf
 if [[ "$deb_version" < "12.1" ]]; then
