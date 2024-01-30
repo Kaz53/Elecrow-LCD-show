@@ -2,6 +2,7 @@
 
 big_version=`lsb_release -r | awk -F ' '  '{printf $NF}'`
 deb_version=`cat /etc/debian_version | tr -d '\n'`
+if [ $(getconf WORD_BIT) = '32' ] && [ $(getconf LONG_BIT) = '64' ] ; then
     hardware_arch=64
 else
     hardware_arch=32
