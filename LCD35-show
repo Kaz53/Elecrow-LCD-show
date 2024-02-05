@@ -27,16 +27,16 @@ sudo echo "hdmi_force_hotplug=1" >>./boot/config.txt.bak
 sudo echo "dtparam=i2c_arm=on" >>./boot/config.txt.bak
 sudo echo "dtparam=spi=on" >>./boot/config.txt.bak
 sudo echo "enable_uart=1" >>./boot/config.txt.bak
-sudo echo "dtoverlay=tft35a:rotate=270" >>./boot/config.txt.bak
+sudo echo "dtoverlay=tft35a:rotate=90" >>./boot/config.txt.bak
 sudo echo "hdmi_group=2" >>./boot/config.txt.bak
 sudo echo "hdmi_mode=1" >>./boot/config.txt.bak
 sudo echo "hdmi_mode=87" >>./boot/config.txt.bak
 sudo echo "hdmi_cvt 480 320 60 6 0 0 0" >>./boot/config.txt.bak
 sudo echo "hdmi_drive=2" >>./boot/config.txt.bak
-sudo echo "lcd_rotate=2" >>./boot/config.txt.bak
+sudo echo "lcd_rotate=1" >>./boot/config.txt.bak
 sudo cp -rf ./boot/config.txt.bak /boot/firmware/config.txt
 
-sudo cp -rf ./usr/99-calibration.conf-35-270 /etc/X11/xorg.conf.d/99-calibration.conf
+sudo cp -rf ./usr/99-calibration.conf-35-90 /etc/X11/xorg.conf.d/99-calibration.conf
 if [[ "$deb_version" < "12.1" ]]; then
     sudo cp -rf ./usr/99-fbturbo.conf /usr/share/X11/xorg.conf.d/99-fbturbo.conf
 fi
@@ -48,7 +48,7 @@ fi
 sudo cp ./usr/inittab /etc/
 #sudo cp ./boot/config-35.txt /boot/config.txt
 sudo touch ./.have_installed
-echo "gpio:resistance:35:270:480:320" >./.have_installed
+echo "gpio:resistance:35:90:480:320" >./.have_installed
 
 sudo apt-get update
 #FBCP install
